@@ -108,6 +108,7 @@ function TrabajoActualContent() {
     const [maquina, setMaquina] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [cliente, setCliente] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [tecnicoId, setTecnicoId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null); // ← AGREGADO
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [observaciones, setObservaciones] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [finalizando, setFinalizando] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -129,17 +130,18 @@ function TrabajoActualContent() {
             setUser(session.user);
             // Buscar técnico en BD
             const { data: tecnicoBD } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("usuarios").select("*").eq("email", session.user.email).eq("rol", "tecnico").maybeSingle();
-            const tecnicoId = tecnicoBD?.id || session.user.id;
+            const idTecnico = tecnicoBD?.id || session.user.id;
+            setTecnicoId(idTecnico); // ← GUARDAR ID DEL TÉCNICO
             const ordenId = searchParams.get('orden');
             // Buscar orden en progreso
             let ordenData;
             if (ordenId) {
                 // Buscar por ID específico
-                const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").select("*").eq("id", ordenId).eq("tecnico_id", tecnicoId).single();
+                const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").select("*").eq("id", ordenId).eq("tecnico_id", idTecnico).single();
                 ordenData = data;
             } else {
                 // Buscar la última orden en progreso
-                const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").select("*").eq("tecnico_id", tecnicoId).eq("estado", "en_progreso").order("created_at", {
+                const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").select("*").eq("tecnico_id", idTecnico).eq("estado", "en_progreso").order("created_at", {
                     ascending: false
                 }).limit(1).maybeSingle();
                 ordenData = data;
@@ -151,12 +153,12 @@ function TrabajoActualContent() {
             }
             setOrden(ordenData);
             // Cargar detalles de la máquina
-            const { data: maquinaData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("maquinas").select("*").eq("id", ordenData.maquina_id).single();
+            const { data: maquinaData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("maquinas").select("*").eq("id", ordenData.maquina_id).maybeSingle();
             if (maquinaData) {
                 setMaquina(maquinaData);
                 // Cargar cliente
                 if (maquinaData.cliente_id) {
-                    const { data: clienteData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("clientes").select("*").eq("id", maquinaData.cliente_id).single();
+                    const { data: clienteData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("clientes").select("*").eq("id", maquinaData.cliente_id).maybeSingle();
                     setCliente(clienteData);
                 }
             }
@@ -172,6 +174,10 @@ function TrabajoActualContent() {
             alert("⚠️ Por favor ingresa observaciones antes de finalizar");
             return;
         }
+        if (observaciones.trim().length < 20) {
+            alert("⚠️ Las observaciones deben tener al menos 20 caracteres");
+            return;
+        }
         const confirmacion = confirm(`¿Estás seguro de finalizar este trabajo?
 
 Orden: #${orden.id}
@@ -182,33 +188,45 @@ Esto marcará el trabajo como completado.`);
         setFinalizando(true);
         try {
             const ahora = new Date().toISOString();
+            console.log("📋 Finalizando orden:", orden.id);
+            console.log("👤 Técnico ID:", tecnicoId);
+            console.log("📝 Observaciones:", observaciones);
             // 1. Actualizar orden a completada
             const { error: ordenError } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").update({
                 estado: "completada",
                 fecha_fin: ahora,
                 observaciones: observaciones
             }).eq("id", orden.id);
-            if (ordenError) throw ordenError;
-            // 2. Registrar en historial
-            const { error: historialError } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("historial").insert({
-                orden_id: orden.id,
-                tecnico_id: user.id,
-                accion: "finalizar_trabajo",
-                detalles: `Trabajo completado. Observaciones: ${observaciones}`,
-                fecha: ahora
-            });
-            if (historialError) {
-                console.warn("⚠️ No se pudo crear historial:", historialError);
+            if (ordenError) {
+                console.error("Error al actualizar orden:", ordenError);
+                throw ordenError;
             }
-            console.log("✅ Trabajo finalizado correctamente");
-            console.log("📋 Orden ID:", orden.id);
-            console.log("📝 Observaciones:", observaciones);
+            console.log("✅ Orden actualizada correctamente");
+            // 2. Registrar en historial (solo si la tabla existe)
+            try {
+                const { error: historialError } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("historial").insert({
+                    orden_id: orden.id,
+                    tecnico_id: tecnicoId,
+                    accion: "finalizar_trabajo",
+                    detalles: `Trabajo completado. Observaciones: ${observaciones}`,
+                    fecha: ahora
+                });
+                if (historialError) {
+                    console.warn("⚠️ No se pudo crear historial (tabla puede no existir):", historialError.message);
+                // No lanzamos error, solo advertencia
+                } else {
+                    console.log("✅ Historial registrado");
+                }
+            } catch (histError) {
+                console.warn("⚠️ Error al registrar historial:", histError.message);
+            // Continuamos aunque falle el historial
+            }
             alert("✅ ¡Trabajo finalizado correctamente!\n\nLa orden se ha movido al historial.");
-            // Redirigir al dashboard (la orden ya no aparecerá)
+            // Redirigir al dashboard
             router.push("/tecnico");
         } catch (error) {
             console.error("❌ Error al finalizar:", error);
-            alert("❌ Error al finalizar: " + error.message);
+            alert("❌ Error al finalizar: " + (error.message || "Error desconocido"));
         } finally{
             setFinalizando(false);
         }
@@ -224,14 +242,18 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                 fecha_inicio: null
             }).eq("id", orden.id);
             if (error) throw error;
-            // Registrar en historial
-            await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("historial").insert({
-                orden_id: orden.id,
-                tecnico_id: user.id,
-                accion: "cancelar_trabajo",
-                detalles: "Trabajo cancelado por el técnico",
-                fecha: new Date().toISOString()
-            });
+            // Registrar en historial (solo si existe)
+            try {
+                await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("historial").insert({
+                    orden_id: orden.id,
+                    tecnico_id: tecnicoId,
+                    accion: "cancelar_trabajo",
+                    detalles: "Trabajo cancelado por el técnico",
+                    fecha: new Date().toISOString()
+                });
+            } catch (histError) {
+                console.warn("⚠️ No se pudo registrar en historial:", histError.message);
+            }
             alert("⏸️ Trabajo cancelado. La orden volverá a estar disponible.");
             router.push("/tecnico");
         } catch (error) {
@@ -242,8 +264,51 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
     if (loading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LoadingSpinner, {}, void 0, false, {
             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-            lineNumber: 231,
+            lineNumber: 256,
             columnNumber: 12
+        }, this);
+    }
+    if (!orden) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "flex items-center justify-center min-h-screen bg-gray-50",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "text-6xl mb-4",
+                        children: "📋"
+                    }, void 0, false, {
+                        fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
+                        lineNumber: 263,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-xl font-bold mb-2",
+                        children: "No hay trabajo en progreso"
+                    }, void 0, false, {
+                        fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
+                        lineNumber: 264,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>router.push("/tecnico"),
+                        className: "mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700",
+                        children: "Volver al Panel"
+                    }, void 0, false, {
+                        fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
+                        lineNumber: 265,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
+                lineNumber: 262,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
+            lineNumber: 261,
+            columnNumber: 7
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -261,7 +326,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     children: "🚀 Trabajo en Progreso"
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 240,
+                                    lineNumber: 282,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -272,13 +337,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 241,
+                                    lineNumber: 283,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 239,
+                            lineNumber: 281,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -287,13 +352,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                             children: "← Volver al Panel"
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 243,
+                            lineNumber: 285,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                    lineNumber: 238,
+                    lineNumber: 280,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -307,7 +372,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     children: "📝 Descripción del Trabajo"
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 254,
+                                    lineNumber: 296,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -317,18 +382,18 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                         children: orden?.descripcion || "Sin descripción"
                                     }, void 0, false, {
                                         fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                        lineNumber: 256,
+                                        lineNumber: 298,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 255,
+                                    lineNumber: 297,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 253,
+                            lineNumber: 295,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -341,7 +406,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Tipo"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 262,
+                                            lineNumber: 304,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -349,13 +414,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: orden?.tipo
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 263,
+                                            lineNumber: 305,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 261,
+                                    lineNumber: 303,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -365,7 +430,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Prioridad"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 266,
+                                            lineNumber: 308,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -373,19 +438,19 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: orden?.prioridad
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 267,
+                                            lineNumber: 309,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 265,
+                                    lineNumber: 307,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 260,
+                            lineNumber: 302,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -397,18 +462,18 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                lineNumber: 279,
+                                lineNumber: 321,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 278,
+                            lineNumber: 320,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                    lineNumber: 252,
+                    lineNumber: 294,
                     columnNumber: 9
                 }, this),
                 maquina && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -419,7 +484,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                             children: "🚜 Máquina"
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 286,
+                            lineNumber: 328,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,7 +497,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Código"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 289,
+                                            lineNumber: 331,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -440,13 +505,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: maquina.codigo
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 290,
+                                            lineNumber: 332,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 288,
+                                    lineNumber: 330,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -456,7 +521,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Marca/Modelo"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 293,
+                                            lineNumber: 335,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -467,13 +532,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 294,
+                                            lineNumber: 336,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 292,
+                                    lineNumber: 334,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -483,7 +548,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Horómetro"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 297,
+                                            lineNumber: 339,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -494,13 +559,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 298,
+                                            lineNumber: 340,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 296,
+                                    lineNumber: 338,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -510,7 +575,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Estado"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 301,
+                                            lineNumber: 343,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -518,25 +583,25 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: maquina.estado
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 302,
+                                            lineNumber: 344,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 300,
+                                    lineNumber: 342,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 287,
+                            lineNumber: 329,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                    lineNumber: 285,
+                    lineNumber: 327,
                     columnNumber: 11
                 }, this),
                 cliente && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -547,7 +612,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                             children: "👤 Cliente"
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 317,
+                            lineNumber: 359,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -560,7 +625,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Nombre"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 320,
+                                            lineNumber: 362,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -568,13 +633,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: cliente.nombre
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 321,
+                                            lineNumber: 363,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 319,
+                                    lineNumber: 361,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -584,20 +649,20 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Teléfono"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 324,
+                                            lineNumber: 366,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: cliente.telefono || "N/A"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 325,
+                                            lineNumber: 367,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 323,
+                                    lineNumber: 365,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -607,20 +672,20 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Email"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 328,
+                                            lineNumber: 370,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: cliente.email || "N/A"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 329,
+                                            lineNumber: 371,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 327,
+                                    lineNumber: 369,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -630,32 +695,32 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "RUC"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 332,
+                                            lineNumber: 374,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: cliente.ruc || "N/A"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 333,
+                                            lineNumber: 375,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 331,
+                                    lineNumber: 373,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 318,
+                            lineNumber: 360,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                    lineNumber: 316,
+                    lineNumber: 358,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -666,7 +731,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                             children: "📋 Registrar Finalización"
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 341,
+                            lineNumber: 383,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -681,13 +746,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                             children: "Requerido"
                                         }, void 0, false, {
                                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                            lineNumber: 345,
+                                            lineNumber: 387,
                                             columnNumber: 51
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 344,
+                                    lineNumber: 386,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -699,7 +764,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 347,
+                                    lineNumber: 389,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -711,13 +776,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 360,
+                                    lineNumber: 402,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 343,
+                            lineNumber: 385,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -730,7 +795,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     children: finalizando ? "⏳ Finalizando..." : "✅ Finalizar Trabajo"
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 366,
+                                    lineNumber: 408,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -740,13 +805,13 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                                     children: "⏸️ Cancelar"
                                 }, void 0, false, {
                                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                                    lineNumber: 378,
+                                    lineNumber: 420,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 365,
+                            lineNumber: 407,
                             columnNumber: 11
                         }, this),
                         observaciones.trim().length < 20 && observaciones.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -754,24 +819,24 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
                             children: "⚠️ Las observaciones deben tener al menos 20 caracteres"
                         }, void 0, false, {
                             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                            lineNumber: 388,
+                            lineNumber: 430,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-                    lineNumber: 340,
+                    lineNumber: 382,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-            lineNumber: 236,
+            lineNumber: 278,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/tecnico/trabajo-actual/page.jsx",
-        lineNumber: 235,
+        lineNumber: 277,
         columnNumber: 5
     }, this);
 }

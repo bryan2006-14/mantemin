@@ -109,18 +109,7 @@ export default function ClientesPage() {
                   </td>
                   <td className="border p-3">
                     <div className="flex gap-2 justify-center">
-                      <button
-                        onClick={() => router.push(`/admin/clientes/${cliente.id}`)}
-                        className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
-                      >
-                        Ver
-                      </button>
-                      <button
-                        onClick={() => router.push(`/admin/clientes/${cliente.id}/editar`)}
-                        className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
-                      >
-                        Editar
-                      </button>
+                     
                       <button
                         onClick={() => eliminarCliente(cliente.id, cliente.nombre)}
                         className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"

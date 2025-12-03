@@ -36,7 +36,6 @@ export default function AdminDashboard() {
     { title: "Máquinas", icon: "🚜", route: "/admin/maquinas", count: stats.maquinas, color: "bg-green-500" },
     { title: "Técnicos", icon: "👷", route: "/admin/tecnicos", count: stats.tecnicos, color: "bg-purple-500" },
     { title: "Órdenes", icon: "📋", route: "/admin/ordenes", count: stats.ordenes, color: "bg-orange-500" },
-    { title: "Tareas", icon: "✅", route: "/admin/tareas", count: 0, color: "bg-yellow-500" },
     { title: "Mapa", icon: "🗺️", route: "/admin/mapa", count: null, color: "bg-red-500" },
     { 
   title: "Historial", 

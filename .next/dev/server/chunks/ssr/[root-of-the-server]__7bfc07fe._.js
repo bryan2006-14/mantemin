@@ -37,7 +37,6 @@ module.exports = mod;
 "[project]/app/admin/historial/page.jsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// app/admin/historial/page.jsx
 __turbopack_context__.s([
     "default",
     ()=>HistorialAdminPage
@@ -52,12 +51,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 ;
 ;
 function HistorialAdminPage() {
-    const [historial, setHistorial] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [ordenes, setOrdenes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [tecnicos, setTecnicos] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [filtroTecnico, setFiltroTecnico] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("todos");
     const [filtroFecha, setFiltroFecha] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("todos");
     const [busqueda, setBusqueda] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [ordenSeleccionada, setOrdenSeleccionada] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         cargarDatos();
@@ -70,8 +70,18 @@ function HistorialAdminPage() {
             // Cargar lista de técnicos
             const { data: tecnicosData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("usuarios").select("id, nombre, email").eq("rol", "tecnico").order("nombre");
             setTecnicos(tecnicosData || []);
-            // Cargar historial
-            let query = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("historial_trabajos").select("*").order("created_at", {
+            // Construir query base - IGUAL QUE EL TÉCNICO
+            let query = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("ordenes").select(`
+          *,
+          maquinas:maquina_id (
+            codigo,
+            marca,
+            modelo,
+            clientes:cliente_id (
+              nombre
+            )
+          )
+        `).eq("estado", "completada").order("fecha_fin", {
                 ascending: false
             });
             // Filtrar por técnico
@@ -82,69 +92,73 @@ function HistorialAdminPage() {
             if (filtroFecha === "ultima_semana") {
                 const hace7dias = new Date();
                 hace7dias.setDate(hace7dias.getDate() - 7);
-                query = query.gte("created_at", hace7dias.toISOString());
+                query = query.gte("fecha_fin", hace7dias.toISOString());
             } else if (filtroFecha === "ultimo_mes") {
                 const hace30dias = new Date();
                 hace30dias.setDate(hace30dias.getDate() - 30);
-                query = query.gte("created_at", hace30dias.toISOString());
+                query = query.gte("fecha_fin", hace30dias.toISOString());
             } else if (filtroFecha === "ultimo_trimestre") {
                 const hace90dias = new Date();
                 hace90dias.setDate(hace90dias.getDate() - 90);
-                query = query.gte("created_at", hace90dias.toISOString());
+                query = query.gte("fecha_fin", hace90dias.toISOString());
             }
             const { data, error } = await query;
             if (error) throw error;
-            // Cargar datos relacionados
-            const historialConDatos = await Promise.all((data || []).map(async (trabajo)=>{
-                // Cargar técnico
-                const { data: tecnico } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("usuarios").select("nombre, email").eq("id", trabajo.tecnico_id).maybeSingle();
-                // Cargar máquina
-                const { data: maquina } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("maquinas").select("codigo, marca, modelo, foto_url, cliente_id").eq("id", trabajo.maquina_id).maybeSingle();
-                // Cargar cliente
-                let cliente = null;
-                if (maquina?.cliente_id) {
-                    const { data: clienteData } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("clientes").select("nombre").eq("id", maquina.cliente_id).maybeSingle();
-                    cliente = clienteData;
-                }
+            // Cargar el nombre del técnico para cada orden
+            const ordenesConTecnico = await Promise.all((data || []).map(async (orden)=>{
+                const { data: tecnico } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabaseClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from("usuarios").select("nombre, email").eq("id", orden.tecnico_id).maybeSingle();
                 return {
-                    ...trabajo,
-                    tecnico,
-                    maquina: maquina ? {
-                        ...maquina,
-                        cliente
-                    } : null
+                    ...orden,
+                    tecnico_nombre: tecnico?.nombre || "Sin asignar"
                 };
             }));
-            setHistorial(historialConDatos);
+            console.log(`📚 ${ordenesConTecnico?.length || 0} trabajos completados`);
+            setOrdenes(ordenesConTecnico);
         } catch (error) {
             console.error("Error al cargar historial:", error);
+            alert("Error al cargar historial: " + error.message);
         } finally{
             setLoading(false);
         }
     }
+    function calcularDuracion(fechaInicio, fechaFin) {
+        if (!fechaInicio || !fechaFin) return "N/A";
+        const inicio = new Date(fechaInicio);
+        const fin = new Date(fechaFin);
+        const diffMs = fin - inicio;
+        const horas = Math.floor(diffMs / (1000 * 60 * 60));
+        const minutos = Math.floor(diffMs % (1000 * 60 * 60) / (1000 * 60));
+        if (horas > 24) {
+            const dias = Math.floor(horas / 24);
+            return `${dias}d ${horas % 24}h`;
+        }
+        return `${horas}h ${minutos}m`;
+    }
     function calcularEstadisticas() {
-        const trabajosFiltrados = historial.filter((t)=>busqueda === "" || t.maquina?.codigo?.toLowerCase().includes(busqueda.toLowerCase()) || t.maquina?.cliente?.nombre?.toLowerCase().includes(busqueda.toLowerCase()) || t.tecnico?.nombre?.toLowerCase().includes(busqueda.toLowerCase()));
+        const trabajosFiltrados = ordenes.filter((o)=>busqueda === "" || o.maquinas?.codigo?.toLowerCase().includes(busqueda.toLowerCase()) || o.maquinas?.clientes?.nombre?.toLowerCase().includes(busqueda.toLowerCase()) || o.tecnico_nombre?.toLowerCase().includes(busqueda.toLowerCase()));
         const total = trabajosFiltrados.length;
-        const tiempoTotal = trabajosFiltrados.reduce((sum, t)=>sum + (t.duracion_minutos || 0), 0);
-        const promedio = total > 0 ? Math.round(tiempoTotal / total) : 0;
+        // Calcular tiempo total
+        let tiempoTotalMs = 0;
+        trabajosFiltrados.forEach((o)=>{
+            if (o.fecha_inicio && o.fecha_fin) {
+                const inicio = new Date(o.fecha_inicio);
+                const fin = new Date(o.fecha_fin);
+                tiempoTotalMs += fin - inicio;
+            }
+        });
+        const tiempoTotalHoras = Math.floor(tiempoTotalMs / (1000 * 60 * 60));
+        const promedioHoras = total > 0 ? Math.round(tiempoTotalHoras / total) : 0;
         // Contar por tipo
-        const porTipo = trabajosFiltrados.reduce((acc, t)=>{
-            acc[t.tipo] = (acc[t.tipo] || 0) + 1;
+        const porTipo = trabajosFiltrados.reduce((acc, o)=>{
+            acc[o.tipo] = (acc[o.tipo] || 0) + 1;
             return acc;
         }, {});
         return {
             total,
-            tiempoTotal,
-            promedio,
+            tiempoTotalHoras,
+            promedioHoras,
             porTipo
         };
-    }
-    function formatearDuracion(minutos) {
-        if (!minutos) return "N/A";
-        const horas = Math.floor(minutos / 60);
-        const mins = minutos % 60;
-        if (horas === 0) return `${mins} min`;
-        return `${horas}h ${mins}min`;
     }
     function exportarCSV() {
         const csv = [
@@ -154,17 +168,19 @@ function HistorialAdminPage() {
                 "Máquina",
                 "Cliente",
                 "Tipo",
-                "Duración (min)",
+                "Prioridad",
+                "Duración",
                 "Estado"
             ],
-            ...historial.map((t)=>[
-                    new Date(t.created_at).toLocaleDateString("es-ES"),
-                    t.tecnico?.nombre || "N/A",
-                    t.maquina?.codigo || "N/A",
-                    t.maquina?.cliente?.nombre || "N/A",
-                    t.tipo,
-                    t.duracion_minutos || 0,
-                    t.estado
+            ...ordenes.map((o)=>[
+                    new Date(o.fecha_fin).toLocaleDateString("es-ES"),
+                    o.tecnico_nombre,
+                    o.maquinas?.codigo || "N/A",
+                    o.maquinas?.clientes?.nombre || "N/A",
+                    o.tipo,
+                    o.prioridad,
+                    calcularDuracion(o.fecha_inicio, o.fecha_fin),
+                    o.estado
                 ])
         ].map((row)=>row.join(",")).join("\n");
         const blob = new Blob([
@@ -180,7 +196,7 @@ function HistorialAdminPage() {
     }
     if (loading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex items-center justify-center min-h-screen",
+            className: "flex items-center justify-center min-h-screen bg-gray-50",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "text-center",
                 children: [
@@ -188,7 +204,7 @@ function HistorialAdminPage() {
                         className: "animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"
                     }, void 0, false, {
                         fileName: "[project]/app/admin/historial/page.jsx",
-                        lineNumber: 162,
+                        lineNumber: 175,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -196,23 +212,23 @@ function HistorialAdminPage() {
                         children: "Cargando historial..."
                     }, void 0, false, {
                         fileName: "[project]/app/admin/historial/page.jsx",
-                        lineNumber: 163,
+                        lineNumber: 176,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/historial/page.jsx",
-                lineNumber: 161,
+                lineNumber: 174,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/admin/historial/page.jsx",
-            lineNumber: 160,
+            lineNumber: 173,
             columnNumber: 7
         }, this);
     }
     const stats = calcularEstadisticas();
-    const trabajosFiltrados = historial.filter((t)=>busqueda === "" || t.maquina?.codigo?.toLowerCase().includes(busqueda.toLowerCase()) || t.maquina?.cliente?.nombre?.toLowerCase().includes(busqueda.toLowerCase()) || t.tecnico?.nombre?.toLowerCase().includes(busqueda.toLowerCase()));
+    const trabajosFiltrados = ordenes.filter((o)=>busqueda === "" || o.maquinas?.codigo?.toLowerCase().includes(busqueda.toLowerCase()) || o.maquinas?.clientes?.nombre?.toLowerCase().includes(busqueda.toLowerCase()) || o.tecnico_nombre?.toLowerCase().includes(busqueda.toLowerCase()));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-50 p-6",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -224,11 +240,11 @@ function HistorialAdminPage() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-2xl font-bold",
+                                    className: "text-3xl font-bold text-gray-800",
                                     children: "📚 Historial de Trabajos"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 183,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -236,13 +252,13 @@ function HistorialAdminPage() {
                                     children: "Registro completo de mantenimientos realizados"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 184,
+                                    lineNumber: 197,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 182,
+                            lineNumber: 195,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -250,32 +266,32 @@ function HistorialAdminPage() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: exportarCSV,
-                                    className: "px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700",
+                                    className: "px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition",
                                     children: "📥 Exportar CSV"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 187,
+                                    lineNumber: 200,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>router.push("/admin"),
-                                    className: "px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700",
+                                    className: "px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition",
                                     children: "← Volver"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 193,
+                                    lineNumber: 206,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 186,
+                            lineNumber: 199,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/historial/page.jsx",
-                    lineNumber: 181,
+                    lineNumber: 194,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -289,7 +305,7 @@ function HistorialAdminPage() {
                                     children: "Total Trabajos"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 205,
+                                    lineNumber: 218,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -297,13 +313,13 @@ function HistorialAdminPage() {
                                     children: stats.total
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 206,
+                                    lineNumber: 219,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 204,
+                            lineNumber: 217,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -314,21 +330,24 @@ function HistorialAdminPage() {
                                     children: "Tiempo Total"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 209,
+                                    lineNumber: 222,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-3xl font-bold text-green-600",
-                                    children: formatearDuracion(stats.tiempoTotal)
-                                }, void 0, false, {
+                                    children: [
+                                        stats.tiempoTotalHoras,
+                                        "h"
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 210,
+                                    lineNumber: 223,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 208,
+                            lineNumber: 221,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -339,21 +358,24 @@ function HistorialAdminPage() {
                                     children: "Promedio"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 213,
+                                    lineNumber: 226,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-3xl font-bold text-purple-600",
-                                    children: formatearDuracion(stats.promedio)
-                                }, void 0, false, {
+                                    children: [
+                                        stats.promedioHoras,
+                                        "h"
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 214,
+                                    lineNumber: 227,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 212,
+                            lineNumber: 225,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -364,7 +386,7 @@ function HistorialAdminPage() {
                                     children: "Por Tipo"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 217,
+                                    lineNumber: 230,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -377,13 +399,13 @@ function HistorialAdminPage() {
                                                     children: stats.porTipo.preventivo || 0
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 219,
+                                                    lineNumber: 232,
                                                     columnNumber: 30
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 219,
+                                            lineNumber: 232,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -393,13 +415,13 @@ function HistorialAdminPage() {
                                                     children: stats.porTipo.correctivo || 0
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 220,
+                                                    lineNumber: 233,
                                                     columnNumber: 30
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 220,
+                                            lineNumber: 233,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -409,31 +431,31 @@ function HistorialAdminPage() {
                                                     children: stats.porTipo.emergencia || 0
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 234,
                                                     columnNumber: 30
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 221,
+                                            lineNumber: 234,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 218,
+                                    lineNumber: 231,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 216,
+                            lineNumber: 229,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/historial/page.jsx",
-                    lineNumber: 203,
+                    lineNumber: 216,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -449,7 +471,7 @@ function HistorialAdminPage() {
                                             children: "Buscar"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 231,
+                                            lineNumber: 244,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -460,13 +482,13 @@ function HistorialAdminPage() {
                                             className: "w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 232,
+                                            lineNumber: 245,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 230,
+                                    lineNumber: 243,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -476,7 +498,7 @@ function HistorialAdminPage() {
                                             children: "Técnico"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 243,
+                                            lineNumber: 256,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -489,7 +511,7 @@ function HistorialAdminPage() {
                                                     children: "Todos los técnicos"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 249,
+                                                    lineNumber: 262,
                                                     columnNumber: 17
                                                 }, this),
                                                 tecnicos.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -497,19 +519,19 @@ function HistorialAdminPage() {
                                                         children: t.nombre
                                                     }, t.id, false, {
                                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                                        lineNumber: 251,
+                                                        lineNumber: 264,
                                                         columnNumber: 19
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 244,
+                                            lineNumber: 257,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 242,
+                                    lineNumber: 255,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -519,7 +541,7 @@ function HistorialAdminPage() {
                                             children: "Período"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 258,
+                                            lineNumber: 271,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -532,7 +554,7 @@ function HistorialAdminPage() {
                                                     children: "Todos los períodos"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 264,
+                                                    lineNumber: 277,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -540,7 +562,7 @@ function HistorialAdminPage() {
                                                     children: "Última Semana"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 278,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -548,7 +570,7 @@ function HistorialAdminPage() {
                                                     children: "Último Mes"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 266,
+                                                    lineNumber: 279,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -556,25 +578,25 @@ function HistorialAdminPage() {
                                                     children: "Último Trimestre"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 267,
+                                                    lineNumber: 280,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 259,
+                                            lineNumber: 272,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 257,
+                                    lineNumber: 270,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 228,
+                            lineNumber: 241,
                             columnNumber: 11
                         }, this),
                         busqueda && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -583,18 +605,18 @@ function HistorialAdminPage() {
                                 "Mostrando ",
                                 trabajosFiltrados.length,
                                 " de ",
-                                historial.length,
+                                ordenes.length,
                                 " resultados"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 273,
+                            lineNumber: 286,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/historial/page.jsx",
-                    lineNumber: 227,
+                    lineNumber: 240,
                     columnNumber: 9
                 }, this),
                 trabajosFiltrados.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -605,259 +627,744 @@ function HistorialAdminPage() {
                             children: "📋"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 282,
+                            lineNumber: 295,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-xl font-bold mb-2",
+                            children: "No se encontraron trabajos"
+                        }, void 0, false, {
+                            fileName: "[project]/app/admin/historial/page.jsx",
+                            lineNumber: 296,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-gray-600 text-lg",
-                            children: "No se encontraron trabajos con los filtros aplicados"
+                            className: "text-gray-600",
+                            children: "Los trabajos finalizados aparecerán aquí."
                         }, void 0, false, {
                             fileName: "[project]/app/admin/historial/page.jsx",
-                            lineNumber: 283,
+                            lineNumber: 297,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/historial/page.jsx",
-                    lineNumber: 281,
+                    lineNumber: 294,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "bg-white rounded-lg shadow overflow-x-auto",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
-                        className: "w-full",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                                className: "bg-gray-200",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                    className: "space-y-4",
+                    children: trabajosFiltrados.map((orden)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-white rounded-lg shadow hover:shadow-lg transition p-6 cursor-pointer",
+                            onClick: ()=>setOrdenSeleccionada(orden),
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between items-start mb-3",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-left border",
-                                            children: "Fecha"
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-2 mb-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "font-bold text-lg",
+                                                            children: [
+                                                                "Orden #",
+                                                                orden.id
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                                            lineNumber: 310,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full",
+                                                            children: "Completada"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                                            lineNumber: 311,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: `text-xs px-2 py-1 rounded-full ${orden.prioridad === 'urgente' ? 'bg-red-100 text-red-800' : orden.prioridad === 'alta' ? 'bg-orange-100 text-orange-800' : orden.prioridad === 'media' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`,
+                                                            children: orden.prioridad
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                                            lineNumber: 314,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 309,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-gray-600 capitalize",
+                                                    children: [
+                                                        orden.tipo,
+                                                        " - ",
+                                                        orden.maquinas?.codigo,
+                                                        " (",
+                                                        orden.maquinas?.marca,
+                                                        ")"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 323,
+                                                    columnNumber: 21
+                                                }, this),
+                                                orden.maquinas?.clientes?.nombre && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-gray-500",
+                                                    children: [
+                                                        "Cliente: ",
+                                                        orden.maquinas.clientes.nombre
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 327,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-blue-600 font-medium mt-1",
+                                                    children: [
+                                                        "👤 ",
+                                                        orden.tecnico_nombre
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 331,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 290,
+                                            lineNumber: 308,
                                             columnNumber: 19
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-left border",
-                                            children: "Técnico"
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-right",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-gray-600",
+                                                    children: "Finalizado"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 336,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-medium",
+                                                    children: new Date(orden.fecha_fin).toLocaleDateString("es-ES")
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 337,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-gray-500",
+                                                    children: new Date(orden.fecha_fin).toLocaleTimeString("es-ES")
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 340,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 291,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-left border",
-                                            children: "Máquina/Cliente"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 292,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-left border",
-                                            children: "Tipo"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 293,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-center border",
-                                            children: "Duración"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 294,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-center border",
-                                            children: "Evidencias"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 295,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "p-3 text-center border",
-                                            children: "Acciones"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/admin/historial/page.jsx",
-                                            lineNumber: 296,
+                                            lineNumber: 335,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                    lineNumber: 289,
+                                    lineNumber: 307,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "grid grid-cols-3 gap-4 mb-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-gray-50 p-2 rounded",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-gray-600",
+                                                    children: "Duración"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 348,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-medium text-sm",
+                                                    children: calcularDuracion(orden.fecha_inicio, orden.fecha_fin)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 349,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 347,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-gray-50 p-2 rounded",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-gray-600",
+                                                    children: "Iniciado"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 354,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-medium text-sm",
+                                                    children: new Date(orden.fecha_inicio).toLocaleDateString("es-ES")
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 355,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 353,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-gray-50 p-2 rounded",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-gray-600",
+                                                    children: "Completado"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 360,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-medium text-sm",
+                                                    children: new Date(orden.fecha_fin).toLocaleDateString("es-ES")
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 361,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 359,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                    lineNumber: 346,
+                                    columnNumber: 17
+                                }, this),
+                                orden.observaciones && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-blue-50 p-3 rounded border-l-4 border-blue-400",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-gray-600 mb-1",
+                                            children: "Observaciones:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 369,
+                                            columnNumber: 21
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-sm text-gray-800 line-clamp-2",
+                                            children: orden.observaciones
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 370,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                    lineNumber: 368,
+                                    columnNumber: 19
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: (e)=>{
+                                        e.stopPropagation();
+                                        setOrdenSeleccionada(orden);
+                                    },
+                                    className: "mt-3 text-blue-600 text-sm hover:underline",
+                                    children: "Ver detalles completos →"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                    lineNumber: 376,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, orden.id, true, {
+                            fileName: "[project]/app/admin/historial/page.jsx",
+                            lineNumber: 302,
+                            columnNumber: 15
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/admin/historial/page.jsx",
+                    lineNumber: 300,
+                    columnNumber: 11
+                }, this),
+                ordenSeleccionada && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50",
+                    onClick: ()=>setOrdenSeleccionada(null),
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto",
+                        onClick: (e)=>e.stopPropagation(),
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-gradient-to-r from-green-600 to-green-700 text-white p-6",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex justify-between items-start",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                    className: "text-2xl font-bold mb-1",
+                                                    children: [
+                                                        "Orden #",
+                                                        ordenSeleccionada.id
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 403,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "opacity-90",
+                                                    children: "Trabajo Completado"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 404,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm opacity-75 mt-1",
+                                                    children: [
+                                                        "👤 Técnico: ",
+                                                        ordenSeleccionada.tecnico_nombre
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                                    lineNumber: 405,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 402,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setOrdenSeleccionada(null),
+                                            className: "bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded transition",
+                                            children: "✕"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/admin/historial/page.jsx",
+                                            lineNumber: 409,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/admin/historial/page.jsx",
+                                    lineNumber: 401,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                lineNumber: 288,
+                                lineNumber: 400,
                                 columnNumber: 15
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-                                children: trabajosFiltrados.map((trabajo)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                        className: "hover:bg-gray-50 transition",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-6 space-y-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3 text-sm",
-                                                children: new Date(trabajo.created_at).toLocaleDateString("es-ES", {
-                                                    day: "2-digit",
-                                                    month: "short",
-                                                    year: "numeric"
-                                                })
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "font-bold mb-2",
+                                                children: "📝 Descripción"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 302,
-                                                columnNumber: 21
+                                                lineNumber: 420,
+                                                columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-700 bg-gray-50 p-3 rounded",
+                                                children: ordenSeleccionada.descripcion || "Sin descripción"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 421,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                        lineNumber: 419,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-2 gap-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "font-medium",
-                                                        children: trabajo.tecnico?.nombre || "N/A"
+                                                        className: "text-sm text-gray-600",
+                                                        children: "Tipo"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                                        lineNumber: 310,
-                                                        columnNumber: 23
+                                                        lineNumber: 428,
+                                                        columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-xs text-gray-600",
-                                                        children: trabajo.tecnico?.email
+                                                        className: "font-medium capitalize",
+                                                        children: ordenSeleccionada.tipo
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                                        lineNumber: 311,
-                                                        columnNumber: 23
+                                                        lineNumber: 429,
+                                                        columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 309,
-                                                columnNumber: 21
+                                                lineNumber: 427,
+                                                columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "font-medium",
-                                                        children: trabajo.maquina?.codigo || "N/A"
+                                                        className: "text-sm text-gray-600",
+                                                        children: "Prioridad"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                                        lineNumber: 314,
-                                                        columnNumber: 23
+                                                        lineNumber: 432,
+                                                        columnNumber: 21
                                                     }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-xs text-gray-600",
-                                                        children: trabajo.maquina?.cliente?.nombre || "Sin cliente"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: `px-3 py-1 rounded-full text-sm font-medium ${ordenSeleccionada.prioridad === 'urgente' ? 'bg-red-100 text-red-800' : ordenSeleccionada.prioridad === 'alta' ? 'bg-orange-100 text-orange-800' : ordenSeleccionada.prioridad === 'media' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`,
+                                                        children: ordenSeleccionada.prioridad
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                                        lineNumber: 315,
-                                                        columnNumber: 23
+                                                        lineNumber: 433,
+                                                        columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 313,
-                                                columnNumber: 21
+                                                lineNumber: 431,
+                                                columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3 text-sm capitalize",
-                                                children: trabajo.tipo
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-sm text-gray-600",
+                                                        children: "Duración Total"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 443,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "font-medium",
+                                                        children: calcularDuracion(ordenSeleccionada.fecha_inicio, ordenSeleccionada.fecha_fin)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 444,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 442,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-sm text-gray-600",
+                                                        children: "Estado"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 449,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium",
+                                                        children: "Completada"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 450,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 448,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                        lineNumber: 426,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "font-bold mb-2",
+                                                children: "🔧 Información de Máquina"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 317,
+                                                lineNumber: 457,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "bg-gray-50 p-4 rounded",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                children: "Código:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 459,
+                                                                columnNumber: 24
+                                                            }, this),
+                                                            " ",
+                                                            ordenSeleccionada.maquinas?.codigo || "N/A"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 459,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                children: "Marca:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 460,
+                                                                columnNumber: 24
+                                                            }, this),
+                                                            " ",
+                                                            ordenSeleccionada.maquinas?.marca || "N/A"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 460,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                children: "Modelo:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 461,
+                                                                columnNumber: 24
+                                                            }, this),
+                                                            " ",
+                                                            ordenSeleccionada.maquinas?.modelo || "N/A"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 461,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                children: "Cliente:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 462,
+                                                                columnNumber: 24
+                                                            }, this),
+                                                            " ",
+                                                            ordenSeleccionada.maquinas?.clientes?.nombre || "N/A"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 462,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 458,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                        lineNumber: 456,
+                                        columnNumber: 17
+                                    }, this),
+                                    ordenSeleccionada.observaciones && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "font-bold mb-2",
+                                                children: "📋 Observaciones / Trabajo Realizado"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 468,
                                                 columnNumber: 21
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3 text-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium",
-                                                    children: formatearDuracion(trabajo.duracion_minutos)
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "bg-blue-50 p-4 rounded border-l-4 border-blue-400",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-gray-800 whitespace-pre-wrap",
+                                                    children: ordenSeleccionada.observaciones
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 319,
+                                                    lineNumber: 470,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 318,
-                                                columnNumber: 21
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3 text-center",
-                                                children: trabajo.evidencias && trabajo.evidencias.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "px-2 py-1 bg-green-100 text-green-800 rounded text-xs",
-                                                    children: [
-                                                        "📸 ",
-                                                        trabajo.evidencias.length
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 325,
-                                                    columnNumber: 25
-                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-gray-400 text-xs",
-                                                    children: "Sin fotos"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 329,
-                                                    columnNumber: 25
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 323,
-                                                columnNumber: 21
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "border p-3 text-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>router.push(`/admin/historial/${trabajo.id}`),
-                                                    className: "px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm",
-                                                    children: "Ver Detalles"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/admin/historial/page.jsx",
-                                                    lineNumber: 333,
-                                                    columnNumber: 23
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/admin/historial/page.jsx",
-                                                lineNumber: 332,
+                                                lineNumber: 469,
                                                 columnNumber: 21
                                             }, this)
                                         ]
-                                    }, trabajo.id, true, {
+                                    }, void 0, true, {
                                         fileName: "[project]/app/admin/historial/page.jsx",
-                                        lineNumber: 301,
+                                        lineNumber: 467,
                                         columnNumber: 19
-                                    }, this))
-                            }, void 0, false, {
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "bg-gray-50 p-4 rounded",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "font-bold mb-2",
+                                                children: "🕐 Línea de Tiempo"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 478,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-2 text-sm",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex justify-between",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-gray-600",
+                                                                children: "Creada:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 481,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-medium",
+                                                                children: new Date(ordenSeleccionada.created_at).toLocaleString("es-ES")
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 482,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 480,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex justify-between",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-gray-600",
+                                                                children: "Iniciada:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 487,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-medium",
+                                                                children: new Date(ordenSeleccionada.fecha_inicio).toLocaleString("es-ES")
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 488,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 486,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex justify-between",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-gray-600",
+                                                                children: "Finalizada:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 493,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-medium text-green-700",
+                                                                children: new Date(ordenSeleccionada.fecha_fin).toLocaleString("es-ES")
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                                lineNumber: 494,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                                        lineNumber: 492,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/historial/page.jsx",
+                                                lineNumber: 479,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/historial/page.jsx",
+                                        lineNumber: 477,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/app/admin/historial/page.jsx",
-                                lineNumber: 299,
+                                lineNumber: 418,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/historial/page.jsx",
-                        lineNumber: 287,
+                        lineNumber: 396,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/admin/historial/page.jsx",
-                    lineNumber: 286,
+                    lineNumber: 392,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/admin/historial/page.jsx",
-            lineNumber: 179,
+            lineNumber: 192,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/admin/historial/page.jsx",
-        lineNumber: 178,
+        lineNumber: 191,
         columnNumber: 5
     }, this);
 }

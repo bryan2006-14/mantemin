@@ -52,15 +52,15 @@ function TecnicosPage() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                 href: "/admin/crear-tecnico",
-                className: "px-4 py-2 bg-blue-600 text-white rounded mb-4 inline-block",
+                className: "px-4 py-2 bg-blue-600 text-white rounded mb-4 inline-block hover:bg-blue-700 transition",
                 children: "+ Registrar nuevo técnico"
             }, void 0, false, {
                 fileName: "[project]/app/admin/tecnicos/page.jsx",
-                lineNumber: 23,
+                lineNumber: 22,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
-                className: "w-full mt-4 border",
+                className: "w-full mt-4 border bg-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -71,7 +71,7 @@ function TecnicosPage() {
                                     children: "Nombre"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 31,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -79,7 +79,7 @@ function TecnicosPage() {
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                    lineNumber: 34,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -87,18 +87,18 @@ function TecnicosPage() {
                                     children: "Acciones"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                    lineNumber: 35,
+                                    lineNumber: 33,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/tecnicos/page.jsx",
-                            lineNumber: 32,
+                            lineNumber: 30,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/admin/tecnicos/page.jsx",
-                        lineNumber: 31,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -109,7 +109,7 @@ function TecnicosPage() {
                                         children: t.nombre
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                        lineNumber: 42,
+                                        lineNumber: 39,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -117,51 +117,51 @@ function TecnicosPage() {
                                         children: t.email
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 40,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                         className: "border p-2 space-x-2",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                className: "px-2 py-1 bg-green-600 text-white rounded",
+                                                className: "px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition inline-block",
                                                 href: `/admin/tecnicos/${t.id}`,
                                                 children: "Editar"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                                lineNumber: 45,
+                                                lineNumber: 42,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                className: "px-2 py-1 bg-red-600 text-white rounded",
+                                                className: "px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition inline-block",
                                                 href: `/admin/tecnicos/${t.id}/delete`,
                                                 children: "Eliminar"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                                lineNumber: 52,
+                                                lineNumber: 48,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                        lineNumber: 44,
+                                        lineNumber: 41,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, t.id, true, {
                                 fileName: "[project]/app/admin/tecnicos/page.jsx",
-                                lineNumber: 41,
+                                lineNumber: 38,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/admin/tecnicos/page.jsx",
-                        lineNumber: 39,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/tecnicos/page.jsx",
-                lineNumber: 30,
+                lineNumber: 28,
                 columnNumber: 7
             }, this)
         ]

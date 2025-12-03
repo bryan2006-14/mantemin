@@ -19,15 +19,13 @@ export default function TecnicosPage() {
   return (
     <div className="p-10">
       <h1 className="text-2xl font-bold mb-6">Técnicos Registrados</h1>
-
       <a 
         href="/admin/crear-tecnico"
-        className="px-4 py-2 bg-blue-600 text-white rounded mb-4 inline-block"
+        className="px-4 py-2 bg-blue-600 text-white rounded mb-4 inline-block hover:bg-blue-700 transition"
       >
         + Registrar nuevo técnico
       </a>
-
-      <table className="w-full mt-4 border">
+      <table className="w-full mt-4 border bg-white">
         <thead>
           <tr className="bg-gray-200">
             <th className="p-2 border">Nombre</th>
@@ -35,7 +33,6 @@ export default function TecnicosPage() {
             <th className="p-2 border">Acciones</th>
           </tr>
         </thead>
-
         <tbody>
           {tecnicos.map(t => (
             <tr key={t.id}>
@@ -43,14 +40,13 @@ export default function TecnicosPage() {
               <td className="border p-2">{t.email}</td>
               <td className="border p-2 space-x-2">
                 <a 
-                  className="px-2 py-1 bg-green-600 text-white rounded"
+                  className="px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition inline-block"
                   href={`/admin/tecnicos/${t.id}`}
                 >
                   Editar
                 </a>
-
                 <a 
-                  className="px-2 py-1 bg-red-600 text-white rounded"
+                  className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition inline-block"
                   href={`/admin/tecnicos/${t.id}/delete`}
                 >
                   Eliminar

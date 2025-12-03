@@ -30,6 +30,7 @@ function TrabajoActualContent() {
   const [maquina, setMaquina] = useState(null);
   const [cliente, setCliente] = useState(null);
   const [user, setUser] = useState(null);
+  const [tecnicoId, setTecnicoId] = useState(null); // ← AGREGADO
   const [loading, setLoading] = useState(true);
   const [observaciones, setObservaciones] = useState("");
   const [finalizando, setFinalizando] = useState(false);
@@ -59,7 +60,9 @@ function TrabajoActualContent() {
         .eq("rol", "tecnico")
         .maybeSingle();
 
-      const tecnicoId = tecnicoBD?.id || session.user.id;
+      const idTecnico = tecnicoBD?.id || session.user.id;
+      setTecnicoId(idTecnico); // ← GUARDAR ID DEL TÉCNICO
+      
       const ordenId = searchParams.get('orden');
       
       // Buscar orden en progreso
@@ -71,7 +74,7 @@ function TrabajoActualContent() {
           .from("ordenes")
           .select("*")
           .eq("id", ordenId)
-          .eq("tecnico_id", tecnicoId)
+          .eq("tecnico_id", idTecnico)
           .single();
         
         ordenData = data;
@@ -80,7 +83,7 @@ function TrabajoActualContent() {
         const { data } = await supabase
           .from("ordenes")
           .select("*")
-          .eq("tecnico_id", tecnicoId)
+          .eq("tecnico_id", idTecnico)
           .eq("estado", "en_progreso")
           .order("created_at", { ascending: false })
           .limit(1)
@@ -91,7 +94,7 @@ function TrabajoActualContent() {
 
       if (!ordenData) {
         alert("No tienes trabajos en progreso");
-        router.push("/tecnico");
+        router.push("tecnico/dashboard");
         return;
       }
 
@@ -102,7 +105,7 @@ function TrabajoActualContent() {
         .from("maquinas")
         .select("*")
         .eq("id", ordenData.maquina_id)
-        .single();
+        .maybeSingle();
 
       if (maquinaData) {
         setMaquina(maquinaData);
@@ -113,7 +116,7 @@ function TrabajoActualContent() {
             .from("clientes")
             .select("*")
             .eq("id", maquinaData.cliente_id)
-            .single();
+            .maybeSingle();
           
           setCliente(clienteData);
         }
@@ -132,6 +135,11 @@ function TrabajoActualContent() {
       return;
     }
 
+    if (observaciones.trim().length < 20) {
+      alert("⚠️ Las observaciones deben tener al menos 20 caracteres");
+      return;
+    }
+
     const confirmacion = confirm(`¿Estás seguro de finalizar este trabajo?
 
 Orden: #${orden.id}
@@ -146,6 +154,10 @@ Esto marcará el trabajo como completado.`);
     try {
       const ahora = new Date().toISOString();
 
+      console.log("📋 Finalizando orden:", orden.id);
+      console.log("👤 Técnico ID:", tecnicoId);
+      console.log("📝 Observaciones:", observaciones);
+
       // 1. Actualizar orden a completada
       const { error: ordenError } = await supabase
         .from("ordenes")
@@ -156,35 +168,44 @@ Esto marcará el trabajo como completado.`);
         })
         .eq("id", orden.id);
 
-      if (ordenError) throw ordenError;
-
-      // 2. Registrar en historial
-      const { error: historialError } = await supabase
-        .from("historial")
-        .insert({
-          orden_id: orden.id,
-          tecnico_id: user.id,
-          accion: "finalizar_trabajo",
-          detalles: `Trabajo completado. Observaciones: ${observaciones}`,
-          fecha: ahora
-        });
-
-      if (historialError) {
-        console.warn("⚠️ No se pudo crear historial:", historialError);
+      if (ordenError) {
+        console.error("Error al actualizar orden:", ordenError);
+        throw ordenError;
       }
 
-      console.log("✅ Trabajo finalizado correctamente");
-      console.log("📋 Orden ID:", orden.id);
-      console.log("📝 Observaciones:", observaciones);
-      
+      console.log("✅ Orden actualizada correctamente");
+
+      // 2. Registrar en historial (solo si la tabla existe)
+      try {
+        const { error: historialError } = await supabase
+          .from("historial")
+          .insert({
+            orden_id: orden.id,
+            tecnico_id: tecnicoId, // ← USAR tecnicoId en lugar de user.id
+            accion: "finalizar_trabajo",
+            detalles: `Trabajo completado. Observaciones: ${observaciones}`,
+            fecha: ahora
+          });
+
+        if (historialError) {
+          console.warn("⚠️ No se pudo crear historial (tabla puede no existir):", historialError.message);
+          // No lanzamos error, solo advertencia
+        } else {
+          console.log("✅ Historial registrado");
+        }
+      } catch (histError) {
+        console.warn("⚠️ Error al registrar historial:", histError.message);
+        // Continuamos aunque falle el historial
+      }
+
       alert("✅ ¡Trabajo finalizado correctamente!\n\nLa orden se ha movido al historial.");
       
-      // Redirigir al dashboard (la orden ya no aparecerá)
-      router.push("/tecnico");
+      // Redirigir al dashboard
+      router.push("tecnico/dashboard");
       
     } catch (error) {
       console.error("❌ Error al finalizar:", error);
-      alert("❌ Error al finalizar: " + error.message);
+      alert("❌ Error al finalizar: " + (error.message || "Error desconocido"));
     } finally {
       setFinalizando(false);
     }
@@ -208,19 +229,23 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
 
       if (error) throw error;
 
-      // Registrar en historial
-      await supabase
-        .from("historial")
-        .insert({
-          orden_id: orden.id,
-          tecnico_id: user.id,
-          accion: "cancelar_trabajo",
-          detalles: "Trabajo cancelado por el técnico",
-          fecha: new Date().toISOString()
-        });
+      // Registrar en historial (solo si existe)
+      try {
+        await supabase
+          .from("historial")
+          .insert({
+            orden_id: orden.id,
+            tecnico_id: tecnicoId,
+            accion: "cancelar_trabajo",
+            detalles: "Trabajo cancelado por el técnico",
+            fecha: new Date().toISOString()
+          });
+      } catch (histError) {
+        console.warn("⚠️ No se pudo registrar en historial:", histError.message);
+      }
       
       alert("⏸️ Trabajo cancelado. La orden volverá a estar disponible.");
-      router.push("/tecnico");
+      router.push("tecnico/dashboard");
     } catch (error) {
       console.error("Error:", error);
       alert("Error al cancelar: " + error.message);
@@ -229,6 +254,23 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
 
   if (loading) {
     return <LoadingSpinner />;
+  }
+
+  if (!orden) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-center">
+          <div className="text-6xl mb-4">📋</div>
+          <h2 className="text-xl font-bold mb-2">No hay trabajo en progreso</h2>
+          <button
+            onClick={() => router.push("tecnico/dashboard")}
+            className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Volver al Panel
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -241,7 +283,7 @@ Esto devolverá la orden al estado "Pendiente" y podrás iniciarla nuevamente de
             <p className="text-gray-600">Orden #{orden?.id}</p>
           </div>
           <button
-            onClick={() => router.push("/tecnico")}
+            onClick={() => router.push("tecnico/dashboard")}
             className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
           >
             ← Volver al Panel

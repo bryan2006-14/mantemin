@@ -1,214 +1,1902 @@
-[00:00:02.028] Server  LOG      ✓ Ready in 1551ms
-[00:00:13.853] Server  LOG      ○ Compiling /admin/clientes/crear ...
-[00:00:19.213] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:21.629] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:49.667] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:09.109] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:11.631] Browser LOG     Autenticación exitosa: tecnico1@ejemplo.com
-[00:01:11.912] Browser LOG     Datos del usuario: {"activo":true,"creado":"2025-12-01T05:53:23.482099","email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","password":null,"rol":"tecnico"}
-[00:01:11.912] Browser LOG     Error al obtener usuario: null
-[00:01:11.912] Browser LOG     Rol del usuario: tecnico
-[00:01:11.912] Browser LOG     Redirigiendo a /tecnico
-[00:01:12.898] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:01:13.134] Browser LOG     ✅ Técnico encontrado: Juan Pérez
-[00:01:13.390] Browser LOG     ✅ Técnico encontrado: Juan Pérez
-[00:01:13.390] Browser LOG     📋 3 órdenes activas encontradas
-[00:01:13.611] Browser LOG     📋 3 órdenes activas encontradas
-[00:01:37.144] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:01:54.878] Browser LOG     🔄 Cargando datos...
-[00:01:54.878] Browser LOG     🔄 Cargando datos...
-[00:01:55.075] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
-[00:01:55.290] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
-[00:01:55.290] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
-[00:01:55.290] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
-[00:01:55.474] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
-[00:01:55.474] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
-[00:01:55.474] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
-[00:01:55.636] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
-[00:02:00.168] Browser LOG     Campo maquina_id cambiado a: 11
-[00:02:07.850] Browser LOG     Campo tecnico_id cambiado a: 8f7a6b5c-1234-5678-9abc-def012345678
-[00:02:11.554] Browser LOG     Campo prioridad cambiado a: urgente
-[00:02:14.011] Browser LOG     Campo prioridad cambiado a: alta
-[00:02:19.151] Browser LOG     Campo fecha_programada cambiado a: 2025-12-02T22:46
-[00:02:22.528] Browser LOG     Campo descripcion cambiado a: t
-[00:02:22.978] Browser LOG     Campo descripcion cambiado a: ti
-[00:02:23.478] Browser LOG     Campo descripcion cambiado a: tie
-[00:02:23.702] Browser LOG     Campo descripcion cambiado a: tien
-[00:02:23.973] Browser LOG     Campo descripcion cambiado a: tiene
-[00:02:24.210] Browser LOG     Campo descripcion cambiado a: tienes
-[00:02:24.436] Browser LOG     Campo descripcion cambiado a: tienes 
-[00:02:24.685] Browser LOG     Campo descripcion cambiado a: tienes q
-[00:02:25.267] Browser LOG     Campo descripcion cambiado a: tienes qu
-[00:02:25.564] Browser LOG     Campo descripcion cambiado a: tienes que
-[00:02:25.784] Browser LOG     Campo descripcion cambiado a: tienes que 
-[00:02:26.067] Browser LOG     Campo descripcion cambiado a: tienes que h
-[00:02:26.399] Browser LOG     Campo descripcion cambiado a: tienes que ha
-[00:02:26.713] Browser LOG     Campo descripcion cambiado a: tienes que hac
-[00:02:26.890] Browser LOG     Campo descripcion cambiado a: tienes que hace
-[00:02:27.053] Browser LOG     Campo descripcion cambiado a: tienes que hacer
-[00:02:27.273] Browser LOG     Campo descripcion cambiado a: tienes que hacer 
-[00:02:27.698] Browser LOG     Campo descripcion cambiado a: tienes que hacer e
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer ee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-[00:02:39.879] Browser LOG     📤 Enviando orden: {"descripcion":"tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","estado":"asignada","fecha_programada":"2025-12-02T22:46","maquina_id":11,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo"}
-[00:02:42.139] Browser LOG     ✅ Orden creada exitosamente: [{"actualizado_at":"2025-12-03T03:46:28.692149","cliente_id":null,"completada_at":null,"creado":"2025-12-03T03:46:28.692149","creado_at":"2025-12-03T03:46:28.692149","created_at":"2025-12-03T03:46:28.692149+00:00","descripcion":"tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","estado":"asignada","fecha":null,"fecha_fin":null,"fecha_inicio":null,"fecha_programada":"2025-12-02T22:46:00+00:00","id":12,"maquina_id":11,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo","updated_at":"2025-12-03T03:46:28.692149+00:00"}]
-[00:02:52.965] Browser LOG     === DATOS DE MÁQUINAS ===
-[00:02:52.965] Browser LOG     Total máquinas: 2
-[00:02:52.965] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
-[00:02:52.965] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
-[00:02:52.965] Browser LOG     =========================
-[00:02:52.965] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:02:52.965] Browser LOG     === DATOS DE MÁQUINAS ===
-[00:02:52.965] Browser LOG     Total máquinas: 2
-[00:02:52.965] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
-[00:02:52.965] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
-[00:02:52.965] Browser LOG     =========================
-[00:02:53.116] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:03:09.668] Browser LOG     Imagen subida exitosamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
-[00:04:37.374] Browser LOG     Máquina creada: [{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
-[00:04:37.847] Browser LOG     === DATOS DE MÁQUINAS ===
-[00:04:37.847] Browser LOG     Total máquinas: 3
-[00:04:37.847] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
-[00:04:37.847] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
-[00:04:37.847] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
-[00:04:37.847] Browser LOG     =========================
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
-[00:04:37.847] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
-[00:04:37.847] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
-[00:04:37.981] Browser LOG     === DATOS DE MÁQUINAS ===
-[00:04:37.981] Browser LOG     Total máquinas: 3
-[00:04:37.981] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
-[00:04:37.981] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
-[00:04:37.981] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
-[00:04:37.981] Browser LOG     =========================
-[00:04:40.021] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
-[00:04:57.045] Browser LOG     🔄 Cargando datos...
-[00:04:57.045] Browser LOG     🔄 Cargando datos...
-[00:04:57.236] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
-[00:04:57.406] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
-[00:04:57.406] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
-[00:04:57.406] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
-[00:04:57.593] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
-[00:04:57.594] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
-[00:04:57.594] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
-[00:04:57.725] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
-[00:05:14.447] Browser LOG     Campo tecnico_id cambiado a: 8f7a6b5c-1234-5678-9abc-def012345678
-[00:05:35.641] Browser LOG     Campo prioridad cambiado a: alta
-[00:05:38.233] Browser LOG     Campo fecha_programada cambiado a: 2025-12-02T22:49
-[00:05:40.317] Browser LOG     Campo descripcion cambiado a: v
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvv
-[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvx
-[00:05:41.320] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxc
-[00:05:41.476] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxcc
-[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccx
-[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxs
-[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxsa
-[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxsax
-[00:05:44.563] Browser LOG     📤 Enviando orden: {"descripcion":"vvvvvvvvvvvxccxsax","estado":"asignada","fecha_programada":"2025-12-02T22:49","maquina_id":12,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo"}
-[00:05:46.293] Browser LOG     ✅ Orden creada exitosamente: [{"actualizado_at":"2025-12-03T03:49:33.057752","cliente_id":null,"completada_at":null,"creado":"2025-12-03T03:49:33.057752","creado_at":"2025-12-03T03:49:33.057752","created_at":"2025-12-03T03:49:33.057752+00:00","descripcion":"vvvvvvvvvvvxccxsax","estado":"asignada","fecha":null,"fecha_fin":null,"fecha_inicio":null,"fecha_programada":"2025-12-02T22:49:00+00:00","id":13,"maquina_id":12,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo","updated_at":"2025-12-03T03:49:33.057752+00:00"}]
-[00:05:50.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:51.314] Browser LOG     ✅ Técnico encontrado: Juan Pérez
-[00:05:51.475] Browser LOG     📋 3 órdenes activas encontradas
-[00:06:03.940] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:04.247] Browser LOG     ✅ Técnico encontrado: Juan Pérez
-[00:06:04.415] Browser LOG     📋 3 órdenes activas encontradas
-[00:06:30.521] Browser WARN    ⚠️ No se pudo crear historial: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.historial_trabajos'","message":"Could not find the table 'public.historial' in the schema cache"}
-[00:06:31.504] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:07:08.118] Browser ERROR   ❌ Error al finalizar: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'observaciones' column of 'ordenes' in the schema cache"}
-[00:07:14.461] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:16.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:19.413] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:25.309] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:25.654] Browser LOG     ✅ Técnico encontrado: Juan Pérez
-[00:07:25.817] Browser LOG     📋 3 órdenes activas encontradas
-[00:07:27.739] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:07:28.121] Browser LOG     📚 1 trabajos completados
-[00:07:28.329] Browser LOG     📚 1 trabajos completados
+[00:00:01.349] Server  LOG      ✓ Ready in 961ms
+[00:00:13.156] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.281] Browser WARN    Image with src "http://localhost:3000/vercel.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:17.941] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:02.118] Browser LOG     Autenticación exitosa: brayan@admin.com
+[00:04:02.312] Browser LOG     Datos del usuario: {"activo":true,"creado":"2025-12-01T22:42:30.187633","email":"brayan@admin.com","id":"c0afacdc-9730-45e1-a1ca-89cd855f26cf","nombre":"Brayan","password":null,"rol":"admin"}
+[00:04:02.312] Browser LOG     Error al obtener usuario: null
+[00:04:02.312] Browser LOG     Rol del usuario: admin
+[00:04:02.312] Browser LOG     Redirigiendo a /admin
+[00:04:02.948] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:04:06.277] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:07.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:09.713] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:27.306] Server  LOG      ✓ Compiled in 75ms
+[00:04:42.121] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:49.872] Server  LOG      ✓ Compiled in 46ms
+[00:08:39.890] Server  LOG      ✓ Compiled in 46ms
+[00:08:41.439] Server  LOG      ✓ Compiled in 40ms
+[00:08:44.518] Server  LOG      ✓ Compiled in 36ms
+[00:08:46.430] Server  LOG      ✓ Compiled in 42ms
+[00:08:51.537] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:59.255] Server  LOG      ✓ Compiled in 33ms
+[00:09:01.537] Server  LOG      ✓ Compiled in 34ms
+[00:09:10.010] Server  LOG      ✓ Compiled in 37ms
+[00:09:11.627] Server  LOG      ✓ Compiled in 31ms
+[00:09:17.905] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:23.450] Server  LOG      ✓ Compiled in 45ms
+[00:09:51.754] Server  LOG      ✓ Compiled in 163ms
+[00:09:52.886] Server  LOG      ✓ Compiled in 99ms
+[00:09:54.118] Server  LOG      ✓ Compiled in 87ms
+[00:09:58.198] Server  LOG      ✓ Compiled in 98ms
+[00:10:16.383] Server  LOG      ✓ Compiled in 104ms
+[00:14:45.495] Server  LOG      ✓ Compiled in 36ms
+[00:14:52.365] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:12.107] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:15:30.256] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:32.008] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:33.329] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:34.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:38.798] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:18:13.614] Server  LOG      ✓ Compiled in 58ms
+[00:18:13.725] Browser ERROR   ./app/admin/clientes/page.jsx:118:27
+Parsing ecmascript source code failed
+  116 |                         Eliminar
+  117 |                       </button>
+> 118 |                     </div>
+      |                           ^
+> 119 |                   </td>
+      | ^^^^^^^^^^^^^^^^^^^
+  120 |                 </tr>
+  121 |               ))}
+  122 |             </tbody>
+
+Expected '</', got 'jsx text (
+                  )'
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/clientes/page.jsx [Client Component Browser]
+    ./app/admin/clientes/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/clientes/page.jsx [Client Component SSR]
+    ./app/admin/clientes/page.jsx [Server Component]
+[00:18:23.834] Server  LOG      ✓ Compiled in 42ms
+[00:18:31.842] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:31.842] Browser LOG     Total máquinas: 3
+[00:18:31.842] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:31.842] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:31.842] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:31.842] Browser LOG     =========================
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:31.842] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:31.958] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:31.958] Browser LOG     Total máquinas: 3
+[00:18:31.959] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:31.959] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:31.959] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:31.959] Browser LOG     =========================
+[00:18:32.378] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:32.379] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:32.379] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:44.633] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:44.633] Browser LOG     Total máquinas: 3
+[00:18:44.633] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:44.633] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:44.633] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:44.633] Browser LOG     =========================
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:44.633] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:44.633] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:44.633] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:44.633] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:44.779] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:44.779] Browser LOG     Total máquinas: 3
+[00:18:44.779] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:44.779] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:44.779] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:44.779] Browser LOG     =========================
+[00:18:50.992] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:50.992] Browser LOG     Total máquinas: 3
+[00:18:50.992] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:50.992] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:50.992] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:50.992] Browser LOG     =========================
+[00:18:50.992] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:50.992] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:50.992] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:50.992] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:51.146] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:51.146] Browser LOG     Total máquinas: 3
+[00:18:51.146] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:51.146] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:51.146] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:51.146] Browser LOG     =========================
+[00:18:55.638] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:55.638] Browser LOG     Total máquinas: 3
+[00:18:55.638] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:55.638] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:55.638] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:55.638] Browser LOG     =========================
+[00:18:55.638] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:55.638] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:55.638] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:18:55.638] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:18:55.795] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:18:55.795] Browser LOG     Total máquinas: 3
+[00:18:55.795] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:18:55.795] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:18:55.795] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:18:55.795] Browser LOG     =========================
+[00:19:00.598] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:19:00.599] Browser LOG     Total máquinas: 3
+[00:19:00.599] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:19:00.599] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:19:00.599] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:19:00.599] Browser LOG     =========================
+[00:19:00.599] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:19:00.599] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:19:00.599] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:19:00.599] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:19:00.714] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:19:00.714] Browser LOG     Total máquinas: 3
+[00:19:00.714] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:19:00.714] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:19:00.714] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:19:00.714] Browser LOG     =========================
+[00:19:12.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:33.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:35.801] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:37.672] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:19.366] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.402] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\.next\dev\server\chunks\ssr\node_modules_next_dist_d5e9dffb._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.409] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.414] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.416] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.417] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.422] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.424] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.428] Server  ERROR    ⨯ Error: The default export is not a React Component in "/admin/tecnicos/[id]/page"
+[00:20:19.436] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.437] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\.next\dev\server\chunks\ssr\node_modules_next_dist_d5e9dffb._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.438] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.440] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.441] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.441] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.442] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.442] Server  ERROR   C:\Users\BRAYAN\Desktop\mantemin2.0\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:19.444] Server  ERROR    ⨯ Error: The default export is not a React Component in "/admin/tecnicos/[id]/page"
+[00:20:21.003] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/admin/tecnicos/[id]/page"
+[00:22:18.338] Server  LOG      ✓ Compiled in 58ms
+[00:22:18.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:09.912] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:23:13.367] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:20.708] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:23:40.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:43.042] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:24:09.697] Browser LOG     🔄 Cargando datos...
+[00:24:09.697] Browser LOG     🔄 Cargando datos...
+[00:24:09.897] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:24:10.062] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:24:10.062] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "},{"id":4,"nombre":"La Encrucijada del Destino"}]
+[00:24:10.062] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:24:10.230] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "},{"id":4,"nombre":"La Encrucijada del Destino"}]
+[00:24:10.230] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:24:10.230] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:24:10.378] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:24:13.093] Browser LOG     Campo maquina_id cambiado a: 12
+[00:24:16.706] Browser LOG     Campo tecnico_id cambiado a: cbfd036d-20ab-4c8b-a41e-b254488e1e0e
+[00:24:29.709] Browser LOG     Campo fecha_programada cambiado a: 2025-12-03T01:36
+[00:24:31.923] Browser LOG     Campo descripcion cambiado a: t
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: ttttttttttttttttttttttttttttttttt
+[00:24:33.390] Browser LOG     Campo descripcion cambiado a: tttttttttttttttttttttttttttttttttt
+[00:24:38.098] Browser LOG     📤 Enviando orden: {"descripcion":"tttttttttttttttttttttttttttttttttt","estado":"asignada","fecha_programada":"2025-12-03T01:36","maquina_id":12,"prioridad":"media","tecnico_id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","tipo":"preventivo"}
+[00:24:40.178] Browser LOG     ✅ Orden creada exitosamente: [{"actualizado_at":"2025-12-03T06:36:29.356176","cliente_id":null,"completada_at":null,"creado":"2025-12-03T06:36:29.356176","creado_at":"2025-12-03T06:36:29.356176","created_at":"2025-12-03T06:36:29.356176+00:00","descripcion":"tttttttttttttttttttttttttttttttttt","estado":"asignada","fecha":null,"fecha_fin":null,"fecha_inicio":null,"fecha_programada":"2025-12-03T01:36:00+00:00","id":14,"maquina_id":12,"prioridad":"media","tecnico_id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","tipo":"preventivo","updated_at":"2025-12-03T06:36:29.356176+00:00"}]
+[00:28:06.770] Server  LOG      ✓ Compiled in 108ms
+[00:28:07.383] Browser LOG     📚 0 trabajos completados
+[00:28:11.478] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:11.915] Browser LOG     📚 0 trabajos completados
+[00:28:16.273] Browser LOG     📚 0 trabajos completados
+[00:28:21.884] Browser LOG     📚 0 trabajos completados
+[00:31:44.366] Server  LOG      ✓ Compiled in 65ms
+[00:31:52.596] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:53.693] Browser LOG     📚 0 trabajos completados
+[00:32:02.613] Browser LOG     📚 0 trabajos completados
+[00:32:05.973] Browser LOG     📚 0 trabajos completados
+[00:32:26.156] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:26.308] Browser WARN    Image with src "http://localhost:3000/vercel.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:32:30.825] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:33.260] Browser LOG     Autenticación exitosa: tecnico1@ejemplo.com
+[00:32:33.469] Browser LOG     Datos del usuario: {"activo":true,"creado":"2025-12-01T05:53:23.482099","email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","password":null,"rol":"tecnico"}
+[00:32:33.470] Browser LOG     Error al obtener usuario: null
+[00:32:33.470] Browser LOG     Rol del usuario: tecnico
+[00:32:33.470] Browser LOG     Redirigiendo a /tecnico
+[00:32:35.337] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:32:35.553] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:32:35.734] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:32:35.734] Browser LOG     📋 1 órdenes activas encontradas
+[00:32:35.868] Browser LOG     📋 1 órdenes activas encontradas
+[00:32:37.983] Browser LOG     📚 0 trabajos completados
+[00:32:38.115] Browser LOG     📚 0 trabajos completados
+[00:32:44.126] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:32:44.257] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:32:44.257] Browser LOG     📋 1 órdenes activas encontradas
+[00:32:44.434] Browser LOG     📋 1 órdenes activas encontradas
+[00:32:50.059] Browser WARN    ⚠️ No se pudo crear historial: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.historial_trabajos'","message":"Could not find the table 'public.historial' in the schema cache"}
+[00:33:22.372] Browser ERROR   ❌ Error al finalizar: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'observaciones' column of 'ordenes' in the schema cache"}
+[00:34:30.472] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:35:32.582] Server  LOG      ✓ Compiled in 118ms
+[00:35:45.066] Browser LOG     📋 Finalizando orden: 13
+[00:35:45.066] Browser LOG     👤 Técnico ID: 8f7a6b5c-1234-5678-9abc-def012345678
+[00:35:45.066] Browser LOG     📝 Observaciones: siuuuuuuuuuuuuuuuuuuuuuuuuuuu
+[00:36:23.237] Browser ERROR   Error al actualizar orden: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'observaciones' column of 'ordenes' in the schema cache"}
+[00:36:23.237] Browser ERROR   ❌ Error al finalizar: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'observaciones' column of 'ordenes' in the schema cache"}
+[00:36:29.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:41.045] Browser LOG     📋 Finalizando orden: 13
+[00:36:41.045] Browser LOG     👤 Técnico ID: 8f7a6b5c-1234-5678-9abc-def012345678
+[00:36:41.045] Browser LOG     📝 Observaciones: siuuuuuuuuuuuuuuuuuuu
+[00:36:41.194] Browser LOG     ✅ Orden actualizada correctamente
+[00:36:42.568] Browser WARN    ⚠️ No se pudo crear historial (tabla puede no existir): Could not find the table 'public.historial' in the schema cache
+[00:36:42.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:31.097] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:36.482] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:36.807] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:37:36.988] Browser LOG     📋 0 órdenes activas encontradas
+[00:37:44.249] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:44.533] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:37:44.666] Browser LOG     📋 0 órdenes activas encontradas
+[00:37:47.680] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:37:47.988] Browser LOG     📚 1 trabajos completados
+[00:37:48.125] Browser LOG     📚 1 trabajos completados
+[00:39:17.825] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:39:17.992] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:39:17.992] Browser LOG     📋 0 órdenes activas encontradas
+[00:39:18.122] Browser LOG     📋 0 órdenes activas encontradas
+[00:39:27.448] Browser LOG     📚 1 trabajos completados
+[00:39:27.592] Browser LOG     📚 1 trabajos completados
+[00:40:22.595] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:22.911] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:40:23.061] Browser LOG     📋 0 órdenes activas encontradas
+[00:41:41.856] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:46.565] Browser LOG     Autenticación exitosa: tecnico1@ejemplo.com
+[00:41:47.080] Browser LOG     Datos del usuario: {"activo":true,"creado":"2025-12-01T05:53:23.482099","email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","password":null,"rol":"tecnico"}
+[00:41:47.080] Browser LOG     Error al obtener usuario: null
+[00:41:47.080] Browser LOG     Rol del usuario: tecnico
+[00:41:47.080] Browser LOG     Redirigiendo a /tecnico
+[00:41:47.080] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:41:47.262] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:41:47.431] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:41:47.431] Browser LOG     📋 0 órdenes activas encontradas
+[00:41:47.961] Browser LOG     📋 0 órdenes activas encontradas
+[00:43:13.213] Server  LOG      ✓ Compiled in 334ms
+[00:47:04.182] Server  LOG      ✓ Compiled in 189ms
+[00:47:04.290] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:04.518] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:10.174] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:10.514] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:21.539] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:22.571] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:26.071] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:26.513] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:30.148] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:30.510] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:35.180] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:35.508] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:38.109] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:38.519] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:44.516] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:44.516] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:48.280] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:48.512] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:51.955] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:47:52.511] Browser ERROR   ./app/page.tsx:1:1
+Parsing ecmascript source code failed
+> 1 | <!DOCTYPE html>
+    | ^
+  2 | <html lang="es">
+  3 | <head>
+  4 |   <meta charset="UTF-8">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:51:45.099] Server  LOG      ✓ Compiled in 338ms
+[00:51:55.298] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:07:13.657] Server  LOG      ✓ Compiled in 506ms
+[01:07:14.520] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:07:14.521] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:07:36.514] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:07:36.515] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:07:39.518] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:07:39.519] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:33.520] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:33.520] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:46.519] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:46.522] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:55.523] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:55.523] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:57.514] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:16:57.514] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:21.516] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:21.516] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:40.510] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:40.510] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:43.515] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:43.515] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:49.508] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:17:49.511] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:04.519] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:04.519] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:08.518] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:08.519] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:10.520] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:10.520] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:11.507] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:11.508] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:12.514] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:12.515] Browser ERROR   ./app/page.tsx:371:98
+Parsing ecmascript source code failed
+  369 |       {/* CTA Banner */}
+  370 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 371 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                                  ^^
+  372 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  373 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  374 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:13.520] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:13.521] Browser ERROR   ./app/page.tsx:368:84
+Parsing ecmascript source code failed
+  366 |       {/* CTA Banner */}
+  367 |       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-6 relative overflow-hidden">
+> 368 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      |                                                                                    ^^
+  369 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  370 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  371 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:18:14.938] Server  LOG      ✓ Compiled in 168ms
+[01:19:38.528] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:19:39.832] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[01:19:40.144] Browser LOG     📋 0 órdenes activas encontradas
+[01:19:41.944] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:25:33.316] Server  LOG      ✓ Compiled in 748ms
+[01:25:34.387] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:25:34.521] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:25:42.520] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:25:42.520] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:25:44.523] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:25:44.525] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:00.515] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:00.518] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:03.511] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:03.511] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:04.511] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:04.511] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:06.518] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:06.518] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:09.514] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:09.514] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:11.528] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:11.529] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:19.522] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:19.524] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:24.516] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:24.517] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:31.518] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:26:31.519] Browser ERROR   ./app/page.tsx:281:84
+Parsing ecmascript source code failed
+  279 |       {/* Banner CTA Intermedio */}
+  280 |       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white py-6 relative overflow-hidden">
+> 281 |         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      |                                                                                    ^^
+  282 |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  283 |           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+  284 |             <div className="flex items-center space-x-4">
+
+Expected '</', got 'numeric literal (60, 60)'
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:34:47.151] Server  LOG      ✓ Compiled in 676ms
+[01:34:47.545] Browser ERROR   ./app/page.tsx:420:26
+Parsing ecmascript source code failed
+  418 |           </div>
+  419 |           
+> 420 |           <div className="border-t border-gray-800 mt-8 pt-8 text-
+      |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Unterminated string constant
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:34:47.585] Browser ERROR   ./app/page.tsx:420:26
+Parsing ecmascript source code failed
+  418 |           </div>
+  419 |           
+> 420 |           <div className="border-t border-gray-800 mt-8 pt-8 text-
+      |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Unterminated string constant
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:36:13.270] Server  LOG      ✓ Compiled in 150ms
+[01:36:24.323] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:36:41.503] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:37:57.070] Server  LOG      ✓ Compiled in 395ms
+[01:38:03.895] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:38:27.480] Server  LOG      ✓ Compiled in 114ms
+[01:38:31.615] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:38:45.433] Server  LOG      ✓ Compiled in 133ms
+[01:39:10.399] Server  LOG      ✓ Compiled in 75ms
+[01:39:27.842] Server  LOG      ✓ Compiled in 89ms
+[01:39:36.304] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
