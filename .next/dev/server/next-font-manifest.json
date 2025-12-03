@@ -1,0 +1,67 @@
+{
+  "app": {
+    "[project]/app/_not-found/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/clientes/crear/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/clientes/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/historial/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/mapa/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/maquinas/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/maquinas/crear/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/maquinas/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/ordenes/crear/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/ordenes/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/admin/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/login/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/tecnico/dashboard/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/tecnico/historial/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ],
+    "[project]/app/tecnico/trabajo-actual/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/2f13ad8e538108e0-s.p.9b936cf7.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

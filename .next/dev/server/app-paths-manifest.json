@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/clientes/crear/page": "app/admin/clientes/crear/page.js",
+  "/admin/clientes/page": "app/admin/clientes/page.js",
+  "/admin/historial/page": "app/admin/historial/page.js",
+  "/admin/mapa/page": "app/admin/mapa/page.js",
+  "/admin/maquinas/[id]/page": "app/admin/maquinas/[id]/page.js",
+  "/admin/maquinas/crear/page": "app/admin/maquinas/crear/page.js",
+  "/admin/maquinas/page": "app/admin/maquinas/page.js",
+  "/admin/ordenes/crear/page": "app/admin/ordenes/crear/page.js",
+  "/admin/ordenes/page": "app/admin/ordenes/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/login/page": "app/login/page.js",
+  "/tecnico/dashboard/page": "app/tecnico/dashboard/page.js",
+  "/tecnico/historial/page": "app/tecnico/historial/page.js",
+  "/tecnico/trabajo-actual/page": "app/tecnico/trabajo-actual/page.js"
+}

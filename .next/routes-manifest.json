@@ -1,0 +1,241 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/clientes/editar/[id]",
+      "regex": "^/admin/clientes/editar/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/clientes/editar/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/clientes/editar/[id]/maquinas/crear",
+      "regex": "^/admin/clientes/editar/([^/]+?)/maquinas/crear(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/clientes/editar/(?<nxtPid>[^/]+?)/maquinas/crear(?:/)?$"
+    },
+    {
+      "page": "/admin/historial/[id]",
+      "regex": "^/admin/historial/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/historial/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/maquinas/editar/[id]",
+      "regex": "^/admin/maquinas/editar/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/maquinas/editar/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/maquinas/[id]",
+      "regex": "^/admin/maquinas/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/maquinas/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/ordenes/[id]",
+      "regex": "^/admin/ordenes/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/ordenes/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/tecnicos/[id]",
+      "regex": "^/admin/tecnicos/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/tecnicos/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/tecnico/historial/[id]",
+      "regex": "^/tecnico/historial/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/tecnico/historial/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/asignar",
+      "regex": "^/admin/asignar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/asignar(?:/)?$"
+    },
+    {
+      "page": "/admin/clientes",
+      "regex": "^/admin/clientes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/clientes(?:/)?$"
+    },
+    {
+      "page": "/admin/clientes/crear",
+      "regex": "^/admin/clientes/crear(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/clientes/crear(?:/)?$"
+    },
+    {
+      "page": "/admin/crear-ot",
+      "regex": "^/admin/crear\\-ot(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/crear\\-ot(?:/)?$"
+    },
+    {
+      "page": "/admin/crear-tecnico",
+      "regex": "^/admin/crear\\-tecnico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/crear\\-tecnico(?:/)?$"
+    },
+    {
+      "page": "/admin/historial",
+      "regex": "^/admin/historial(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/historial(?:/)?$"
+    },
+    {
+      "page": "/admin/mapa",
+      "regex": "^/admin/mapa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/mapa(?:/)?$"
+    },
+    {
+      "page": "/admin/maquinas",
+      "regex": "^/admin/maquinas(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/maquinas(?:/)?$"
+    },
+    {
+      "page": "/admin/maquinas/crear",
+      "regex": "^/admin/maquinas/crear(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/maquinas/crear(?:/)?$"
+    },
+    {
+      "page": "/admin/ordenes",
+      "regex": "^/admin/ordenes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/ordenes(?:/)?$"
+    },
+    {
+      "page": "/admin/ordenes/crear",
+      "regex": "^/admin/ordenes/crear(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/ordenes/crear(?:/)?$"
+    },
+    {
+      "page": "/admin/tareas",
+      "regex": "^/admin/tareas(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/tareas(?:/)?$"
+    },
+    {
+      "page": "/admin/tecnicos",
+      "regex": "^/admin/tecnicos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/tecnicos(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/tecnico/dashboard",
+      "regex": "^/tecnico/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tecnico/dashboard(?:/)?$"
+    },
+    {
+      "page": "/tecnico/historial",
+      "regex": "^/tecnico/historial(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tecnico/historial(?:/)?$"
+    },
+    {
+      "page": "/tecnico/trabajo-actual",
+      "regex": "^/tecnico/trabajo\\-actual(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tecnico/trabajo\\-actual(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

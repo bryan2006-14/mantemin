@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/tecnico/layout,_N_T_/tecnico/historial/layout,_N_T_/tecnico/historial/page,_N_T_/tecnico/historial"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/tecnico/historial/__PAGE__",
+    "/tecnico/historial",
+    "/tecnico",
+    "/_index",
+    "/_head"
+  ]
+}

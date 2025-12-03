@@ -1,0 +1,214 @@
+[00:00:02.028] Server  LOG      ✓ Ready in 1551ms
+[00:00:13.853] Server  LOG      ○ Compiling /admin/clientes/crear ...
+[00:00:19.213] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:21.629] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:49.667] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:09.109] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:11.631] Browser LOG     Autenticación exitosa: tecnico1@ejemplo.com
+[00:01:11.912] Browser LOG     Datos del usuario: {"activo":true,"creado":"2025-12-01T05:53:23.482099","email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","password":null,"rol":"tecnico"}
+[00:01:11.912] Browser LOG     Error al obtener usuario: null
+[00:01:11.912] Browser LOG     Rol del usuario: tecnico
+[00:01:11.912] Browser LOG     Redirigiendo a /tecnico
+[00:01:12.898] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:13.134] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:01:13.390] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:01:13.390] Browser LOG     📋 3 órdenes activas encontradas
+[00:01:13.611] Browser LOG     📋 3 órdenes activas encontradas
+[00:01:37.144] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:54.878] Browser LOG     🔄 Cargando datos...
+[00:01:54.878] Browser LOG     🔄 Cargando datos...
+[00:01:55.075] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
+[00:01:55.290] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
+[00:01:55.290] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
+[00:01:55.290] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
+[00:01:55.474] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
+[00:01:55.474] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null}]
+[00:01:55.474] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:01:55.636] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:02:00.168] Browser LOG     Campo maquina_id cambiado a: 11
+[00:02:07.850] Browser LOG     Campo tecnico_id cambiado a: 8f7a6b5c-1234-5678-9abc-def012345678
+[00:02:11.554] Browser LOG     Campo prioridad cambiado a: urgente
+[00:02:14.011] Browser LOG     Campo prioridad cambiado a: alta
+[00:02:19.151] Browser LOG     Campo fecha_programada cambiado a: 2025-12-02T22:46
+[00:02:22.528] Browser LOG     Campo descripcion cambiado a: t
+[00:02:22.978] Browser LOG     Campo descripcion cambiado a: ti
+[00:02:23.478] Browser LOG     Campo descripcion cambiado a: tie
+[00:02:23.702] Browser LOG     Campo descripcion cambiado a: tien
+[00:02:23.973] Browser LOG     Campo descripcion cambiado a: tiene
+[00:02:24.210] Browser LOG     Campo descripcion cambiado a: tienes
+[00:02:24.436] Browser LOG     Campo descripcion cambiado a: tienes 
+[00:02:24.685] Browser LOG     Campo descripcion cambiado a: tienes q
+[00:02:25.267] Browser LOG     Campo descripcion cambiado a: tienes qu
+[00:02:25.564] Browser LOG     Campo descripcion cambiado a: tienes que
+[00:02:25.784] Browser LOG     Campo descripcion cambiado a: tienes que 
+[00:02:26.067] Browser LOG     Campo descripcion cambiado a: tienes que h
+[00:02:26.399] Browser LOG     Campo descripcion cambiado a: tienes que ha
+[00:02:26.713] Browser LOG     Campo descripcion cambiado a: tienes que hac
+[00:02:26.890] Browser LOG     Campo descripcion cambiado a: tienes que hace
+[00:02:27.053] Browser LOG     Campo descripcion cambiado a: tienes que hacer
+[00:02:27.273] Browser LOG     Campo descripcion cambiado a: tienes que hacer 
+[00:02:27.698] Browser LOG     Campo descripcion cambiado a: tienes que hacer e
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer ee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.313] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:30.314] Browser LOG     Campo descripcion cambiado a: tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+[00:02:39.879] Browser LOG     📤 Enviando orden: {"descripcion":"tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","estado":"asignada","fecha_programada":"2025-12-02T22:46","maquina_id":11,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo"}
+[00:02:42.139] Browser LOG     ✅ Orden creada exitosamente: [{"actualizado_at":"2025-12-03T03:46:28.692149","cliente_id":null,"completada_at":null,"creado":"2025-12-03T03:46:28.692149","creado_at":"2025-12-03T03:46:28.692149","created_at":"2025-12-03T03:46:28.692149+00:00","descripcion":"tienes que hacer eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","estado":"asignada","fecha":null,"fecha_fin":null,"fecha_inicio":null,"fecha_programada":"2025-12-02T22:46:00+00:00","id":12,"maquina_id":11,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo","updated_at":"2025-12-03T03:46:28.692149+00:00"}]
+[00:02:52.965] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:02:52.965] Browser LOG     Total máquinas: 2
+[00:02:52.965] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:02:52.965] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:02:52.965] Browser LOG     =========================
+[00:02:52.965] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:02:52.965] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:02:52.965] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:02:52.965] Browser LOG     Total máquinas: 2
+[00:02:52.965] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:02:52.965] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:02:52.965] Browser LOG     =========================
+[00:02:53.116] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:03:09.668] Browser LOG     Imagen subida exitosamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:04:37.374] Browser LOG     Máquina creada: [{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:04:37.847] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:04:37.847] Browser LOG     Total máquinas: 3
+[00:04:37.847] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:04:37.847] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:04:37.847] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:04:37.847] Browser LOG     =========================
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:04:37.847] Browser LOG     URL de imagen recibida: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:04:37.847] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png
+[00:04:37.847] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png
+[00:04:37.981] Browser LOG     === DATOS DE MÁQUINAS ===
+[00:04:37.981] Browser LOG     Total máquinas: 3
+[00:04:37.981] Browser LOG     Máquina 1: {"codigo":"MAQ-45634","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","id":10,"tipo_foto_url":"string"}
+[00:04:37.981] Browser LOG     Máquina 2: {"codigo":"MAQ-45635","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","id":11,"tipo_foto_url":"string"}
+[00:04:37.981] Browser LOG     Máquina 3: {"codigo":"MAQ-45636","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","id":12,"tipo_foto_url":"string"}
+[00:04:37.981] Browser LOG     =========================
+[00:04:40.021] Browser LOG     Imagen cargada correctamente: https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg
+[00:04:57.045] Browser LOG     🔄 Cargando datos...
+[00:04:57.045] Browser LOG     🔄 Cargando datos...
+[00:04:57.236] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:04:57.406] Browser LOG     ✅ Máquinas cargadas: [{"cliente_id":2,"codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:04:57.406] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
+[00:04:57.406] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:04:57.593] Browser LOG     ✅ Clientes cargados: [{"id":2,"nombre":"Brayan "}]
+[00:04:57.594] Browser LOG     ✅ Máquinas con clientes: [{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45634","creado":"2025-12-01T05:33:45.124028","descripcion":"qwedfcx","estado":"en mantenimiento","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764567200568-yn3ll3.png","horometro":null,"id":10,"marca":"benz","modelo":"zx","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45635","creado":"2025-12-02T04:24:58.484142","descripcion":"ddddddddddd","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764649477278-x98ajc.png","horometro":null,"id":11,"marca":"benz","modelo":"z","serie":null},{"cliente_id":2,"cliente_nombre":"Brayan ","codigo":"MAQ-45636","creado":"2025-12-03T03:48:23.294184","descripcion":"nueva","estado":"operativo","foto_url":"https://aysoiacdxglzsuhtrfnp.supabase.co/storage/v1/object/public/imagenes/maquinas/1764733616495-zlntn.jpg","horometro":null,"id":12,"marca":"Caterpillar","modelo":"950H","serie":null}]
+[00:04:57.594] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:04:57.725] Browser LOG     ✅ Técnicos cargados: [{"email":"cliente@gmail.com","id":"cbfd036d-20ab-4c8b-a41e-b254488e1e0e","nombre":"Brayan ","rol":"tecnico"},{"email":"tecnico1@ejemplo.com","id":"8f7a6b5c-1234-5678-9abc-def012345678","nombre":"Juan Pérez","rol":"tecnico"},{"email":"tecnico2@ejemplo.com","id":"9a8b7c6d-5678-1234-abcd-ef9876543210","nombre":"María González","rol":"tecnico"},{"email":"tecnico@gmail.com","id":"ff9d7a52-a7ee-4304-892a-adc24953d0fd","nombre":"Técnico Juan","rol":"tecnico"}]
+[00:05:14.447] Browser LOG     Campo tecnico_id cambiado a: 8f7a6b5c-1234-5678-9abc-def012345678
+[00:05:35.641] Browser LOG     Campo prioridad cambiado a: alta
+[00:05:38.233] Browser LOG     Campo fecha_programada cambiado a: 2025-12-02T22:49
+[00:05:40.317] Browser LOG     Campo descripcion cambiado a: v
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvv
+[00:05:41.101] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvx
+[00:05:41.320] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxc
+[00:05:41.476] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxcc
+[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccx
+[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxs
+[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxsa
+[00:05:41.858] Browser LOG     Campo descripcion cambiado a: vvvvvvvvvvvxccxsax
+[00:05:44.563] Browser LOG     📤 Enviando orden: {"descripcion":"vvvvvvvvvvvxccxsax","estado":"asignada","fecha_programada":"2025-12-02T22:49","maquina_id":12,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo"}
+[00:05:46.293] Browser LOG     ✅ Orden creada exitosamente: [{"actualizado_at":"2025-12-03T03:49:33.057752","cliente_id":null,"completada_at":null,"creado":"2025-12-03T03:49:33.057752","creado_at":"2025-12-03T03:49:33.057752","created_at":"2025-12-03T03:49:33.057752+00:00","descripcion":"vvvvvvvvvvvxccxsax","estado":"asignada","fecha":null,"fecha_fin":null,"fecha_inicio":null,"fecha_programada":"2025-12-02T22:49:00+00:00","id":13,"maquina_id":12,"prioridad":"alta","tecnico_id":"8f7a6b5c-1234-5678-9abc-def012345678","tipo":"preventivo","updated_at":"2025-12-03T03:49:33.057752+00:00"}]
+[00:05:50.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:51.314] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:05:51.475] Browser LOG     📋 3 órdenes activas encontradas
+[00:06:03.940] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:04.247] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:06:04.415] Browser LOG     📋 3 órdenes activas encontradas
+[00:06:30.521] Browser WARN    ⚠️ No se pudo crear historial: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.historial_trabajos'","message":"Could not find the table 'public.historial' in the schema cache"}
+[00:06:31.504] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:08.118] Browser ERROR   ❌ Error al finalizar: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'observaciones' column of 'ordenes' in the schema cache"}
+[00:07:14.461] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:16.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:19.413] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:25.309] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:25.654] Browser LOG     ✅ Técnico encontrado: Juan Pérez
+[00:07:25.817] Browser LOG     📋 3 órdenes activas encontradas
+[00:07:27.739] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:28.121] Browser LOG     📚 1 trabajos completados
+[00:07:28.329] Browser LOG     📚 1 trabajos completados

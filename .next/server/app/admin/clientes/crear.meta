@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/clientes/layout,_N_T_/admin/clientes/crear/layout,_N_T_/admin/clientes/crear/page,_N_T_/admin/clientes/crear"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/admin/clientes/crear/__PAGE__",
+    "/admin/clientes/crear",
+    "/admin/clientes",
+    "/admin",
+    "/_index",
+    "/_head"
+  ]
+}

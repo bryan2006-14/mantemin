@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/mapa/layout,_N_T_/admin/mapa/page,_N_T_/admin/mapa"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/admin/mapa/__PAGE__",
+    "/admin/mapa",
+    "/admin",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/tecnico/layout,_N_T_/tecnico/dashboard/layout,_N_T_/tecnico/dashboard/page,_N_T_/tecnico/dashboard"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/tecnico/dashboard/__PAGE__",
+    "/tecnico/dashboard",
+    "/tecnico",
+    "/_index",
+    "/_head"
+  ]
+}
