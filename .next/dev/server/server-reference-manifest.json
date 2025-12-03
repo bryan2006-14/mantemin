@@ -1,21 +1,5 @@
 {
-  "node": {
-    "408fb336cc735ac5ceeb888b1fa6796aed89d782ee": {
-      "workers": {
-        "app/admin/crear-tecnico/page": {
-          "moduleId": "[project]/.next-internal/server/app/admin/crear-tecnico/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/admin/crear-tecnico/actions.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "crearTecnico",
-          "filename": "app/admin/crear-tecnico/actions.js"
-        }
-      },
-      "layer": {
-        "app/admin/crear-tecnico/page": "action-browser"
-      },
-      "filename": "app/admin/crear-tecnico/actions.js",
-      "exportedName": "crearTecnico"
-    }
-  },
+  "node": {},
   "edge": {},
   "encryptionKey": "hNsj1awuoNXT9vxbKOir5Dp0gYG84LaUqvvc6sGpnZQ="
 }

@@ -77,6 +77,14 @@
       "namedRegex": "^/admin/tecnicos/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/admin/tecnicos/[id]/delete",
+      "regex": "^/admin/tecnicos/([^/]+?)/delete(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/tecnicos/(?<nxtPid>[^/]+?)/delete(?:/)?$"
+    },
+    {
       "page": "/tecnico/historial/[id]",
       "regex": "^/tecnico/historial/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -115,6 +123,12 @@
       "regex": "^/admin/asignar(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/asignar(?:/)?$"
+    },
+    {
+      "page": "/admin/chat",
+      "regex": "^/admin/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/chat(?:/)?$"
     },
     {
       "page": "/admin/clientes",
@@ -177,12 +191,6 @@
       "namedRegex": "^/admin/ordenes/crear(?:/)?$"
     },
     {
-      "page": "/admin/tareas",
-      "regex": "^/admin/tareas(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/tareas(?:/)?$"
-    },
-    {
       "page": "/admin/tecnicos",
       "regex": "^/admin/tecnicos(?:/)?$",
       "routeKeys": {},
@@ -199,6 +207,12 @@
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/tecnico/chat",
+      "regex": "^/tecnico/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tecnico/chat(?:/)?$"
     },
     {
       "page": "/tecnico/dashboard",

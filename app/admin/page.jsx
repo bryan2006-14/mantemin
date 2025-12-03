@@ -1,8 +1,8 @@
-// app/admin/page.jsx
 'use client'
 import { useRouter } from "next/navigation"
 import { supabase } from "@/lib/supabaseClient"
 import { useEffect, useState } from "react"
+import FloatingChatButton from "@/components/FloatingChatButton" // <-- Importa el componente
 
 export default function AdminDashboard() {
   const router = useRouter()
@@ -38,12 +38,12 @@ export default function AdminDashboard() {
     { title: "Órdenes", icon: "📋", route: "/admin/ordenes", count: stats.ordenes, color: "bg-orange-500" },
     { title: "Mapa", icon: "🗺️", route: "/admin/mapa", count: null, color: "bg-red-500" },
     { 
-  title: "Historial", 
-  icon: "📚", 
-  route: "/admin/historial", 
-  count: null, 
-  color: "bg-indigo-500" 
-}
+      title: "Historial", 
+      icon: "📚", 
+      route: "/admin/historial", 
+      count: null, 
+      color: "bg-indigo-500" 
+    }
   ]
 
   return (
@@ -114,6 +114,9 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Agrega el botón flotante de chat aquí */}
+      <FloatingChatButton />
     </div>
   )
 }
